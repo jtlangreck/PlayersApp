@@ -4,6 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="Stylesheet" href="style.css" type="text/css">
         <title>JSP Page</title>
     </head>
     
@@ -13,7 +14,7 @@
         <h1>My Players</h1>
         <%= table %>
         
-        <br><br>
+        <br>
         <a href="add"> Add Another Player </a>
         
     </body>

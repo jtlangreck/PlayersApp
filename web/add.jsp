@@ -9,6 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="Stylesheet" href="style.css" type="text/css">
         <title>Add Another Player</title>
     </head>
     <body>
@@ -18,17 +19,24 @@
             <label> Player Name:</label>
             <input type="text" name="name" value="" />
             <br>
+            <br>
             <label> Position:</label>
             <input type="text" name="position" value="" />
             <br>
+            <br>
             <label> Age:</label> 
             <input type="text" name="age" value="" />
-            <br>
+            <br><br>
             <label> Height (inches): </label>
             <input type="text" name="height" value="" />
             <br>
+            <br>
+            <div id ="left">
             <input type="reset" name="clear" value="Clear" />
+            </div>
+            <div id ="right">
             <input type="submit" name="submit" value="Submit" />
+            </div>
             
             
         </form>

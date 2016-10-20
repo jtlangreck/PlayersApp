@@ -59,7 +59,15 @@ public class ReadQuery {
     
     public String getHTMLtable(){
         String table = "";
-        table+="<table border=1";
+        table+="<table>";
+        table+="<tr>";
+        table+="<th> ID </th>";
+        table+="<th> Name </th>";
+        table+="<th> Position </th>";
+        table+="<th> Age </th>";
+        table+="<th> Height(Inches) </th>";
+        table+="<th> </th>";
+        table+="</tr>";
         
         try {
             while(this.results.next()) {
