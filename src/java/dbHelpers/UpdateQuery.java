@@ -48,7 +48,7 @@ public class UpdateQuery {
     
     public void doUpdate (Players player) {
         try {
-            String query = "UPDATE players SET playerName = ?, playerPosition = ?, Age = ?, Height = ?";
+            String query = "UPDATE Players SET playerName = ?, playerPosition = ?, Age = ?, Height = ? WHERE playerID = ?";
             
             PreparedStatement ps = conn.prepareStatement(query);
             
@@ -56,6 +56,7 @@ public class UpdateQuery {
             ps.setString(2, player.getPlayerPosition());
             ps.setInt(3, player.getAge());
             ps.setInt(4, player.getHeight());
+            ps.setInt(5, player.getPlayerID());
             
             ps.executeUpdate();
         } catch (SQLException ex) {

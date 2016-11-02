@@ -1,6 +1,9 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package dbHelpers;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -13,22 +16,29 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Players;
 
-public class ReadQuery {
-    private Connection conn;
-    private ResultSet results;
+/**
+ *
+ * @author Jake Langreck
+ */
+public class SearchQuery {
     
-    public ReadQuery(){
+   private Connection conn;
+   private ResultSet results;
+   
+   
+    public SearchQuery(){
+        
         Properties props = new Properties(); //MWC
         InputStream instr = getClass().getResourceAsStream("dbConn.properties");
         try {
             props.load(instr);
         } catch (IOException ex) {
-            Logger.getLogger(ReadQuery.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SearchQuery.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             instr.close();
         } catch (IOException ex) {
-            Logger.getLogger(ReadQuery.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SearchQuery.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         String driver = props.getProperty("driver.name");
@@ -38,27 +48,40 @@ public class ReadQuery {
         try {
             Class.forName(driver);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ReadQuery.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SearchQuery.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
             conn = DriverManager.getConnection(url, username, password);
         } catch (SQLException ex) {
-            Logger.getLogger(ReadQuery.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SearchQuery.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void doRead(){
-        try {
-            String query = "SELECT * FROM players ORDER BY playerID ASC";
-            PreparedStatement ps = conn.prepareStatement(query);
-            this.results = ps.executeQuery();
-        } catch (SQLException ex) {
-            Logger.getLogger(ReadQuery.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
+        
+        
+   
+    
+    
+    public void doSearch(String playerName){
+        
+       try {
+           String query = "SELECT * FROM players WHERE UPPER(playerName) LIKE ? ORDER BY playerID ASC";
+           
+           PreparedStatement ps = conn.prepareStatement(query);
+           ps.setString(1, "%" + playerName.toUpperCase() + "%");
+           this.results = ps.executeQuery();
+       } catch (SQLException ex) {
+           Logger.getLogger(SearchQuery.class.getName()).log(Level.SEVERE, null, ex);
+       }
+        
+        
         
     }
     
-    public String getHTMLtable(){
-        String table = "";
+    
+    public String getHTMLTable()
+    {
+       String table = "";
         table+="<table>";
         table+="<tr>";
         table+="<th> ID </th>";
@@ -110,12 +133,19 @@ public class ReadQuery {
 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ReadQuery.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SearchQuery.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
         table+="</table>";
                 
-        return table;
+        return table;  
+      
     }
+    
+    
 }
+    
+    
+    
+

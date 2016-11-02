@@ -16,6 +16,8 @@
         
         <br>
         <a href="add"> Add Another Player </a>
-        
+        <br><br>
+        <a href="search.jsp"> Search Players </a>
+       
     </body>
 </html>
