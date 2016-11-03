@@ -11,13 +11,28 @@
     <% String table = (String) request.getAttribute("table"); %>
     
     <body>
-        <h1>My Players</h1>
-        <%= table %>
-        
-        <br>
-        <a href="add"> Add Another Player </a>
-        <br><br>
-        <a href="search.jsp"> Search Players </a>
+        <div class="wrap">
+            <div class="header">
+             <%@ include file="includes/header.jsp" %> 
+            
+            <%@ include file="includes/menu.jsp" %> 
+            </div>
+            
+            <div class="main">
+                <h1>My Players</h1>
+                <%= table %>
+
+                <br>
+                <a href="add"> Add Another Player </a>
+                <br><br>
+                <a href="search.jsp"> Search Players </a>
+            </div>
+            <div class="footer">
+              <%@ include file="/includes/footer.jsp" %>      
+                    
+                    
+            </div>
+        </div>
        
     </body>
 </html>

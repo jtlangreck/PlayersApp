@@ -3,13 +3,59 @@ body {
     background-color: #D2B48C;
 }
 
+.wrap {text-align:center; width:90%; margin: 0 auto; border: 1px solid black; margin-top:25px;}
+
+.header {text-align: left; padding:25px; background-color:#F08080;}
+
+.headerImg {float:left; width: 200px;}
+.headerText {float:left; height:105px; padding-top:50px; padding-left:50px; margin-left: 10%;}
+
+.main {text-align:center; padding:25px; background-color:#FFFF99;}
+
+.footer{text-align:center; padding:25px; background-color:#F08080}
+
+input[readonly] {background-color:gray;}
+
+
+
+.navcontainer{padding-left: 30px; text-align:left; background-color:#F08080;}
+
+.navlist {
+    list-style:none;
+    padding: 0;
+    margin: 0;
+    background-color:#F08080;
+}
+
+.navlist li {
+    background-color:#F08080;
+    display: inline;
+    padding: 0;
+    margin: 0;
+}
+
+.navlist li:before{content: "| ";}
+.navlist li:first-child:before {content: "";}
+
+* html #navlist li {
+    border-left: 1px solid black;
+    padding: 0 0.4em 0 0.04em;
+    margin: 0 0.4em 0 -0.4em;
+}
+
+* html #navlist{ height: 1%;}
+
+* html #navlist li {
+    display:block;
+    float: left;
+}
+
 
 h1 {
     text-align: center;
 }
 
 a{
-    margin-left: 45%;
     color: black;
     font-size: 20px;
     margin-bottom: 20px;

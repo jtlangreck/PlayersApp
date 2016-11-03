@@ -13,6 +13,13 @@
         <title>Add Another Player</title>
     </head>
     <body>
+        <div class="wrap"> 
+            
+            <%@ include file="includes/header.jsp" %> 
+            
+            <%@ include file="includes/menu.jsp" %> 
+            
+        <div class="main">
         <h1>Add Another Player!</h1>
         
         <form name="addForm" action="addPlayer" method ="get">
@@ -27,7 +34,7 @@
             <label> Age:</label> 
             <input type="text" name="age" value="" />
             <br><br>
-            <label> Height (inches): </label>
+            <label> Height (in): </label>
             <input type="text" name="height" value="" />
             <br>
             <br>
@@ -40,5 +47,8 @@
             
             
         </form>
+        </div>
+             <%@ include file="/includes/footer.jsp" %>
+        </div>
     </body>
 </html>

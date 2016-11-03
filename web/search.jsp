@@ -7,21 +7,25 @@
         <title>Search Players</title>        
     </head>
     <body>
-        <div class="wrap"> <!-- wrap -->
+        <div class="wrap"> 
+            
+           
+            <%@ include file="includes/header.jsp" %> 
+            
+            <%@ include file="includes/menu.jsp" %> 
+                
+            
 
-
-            <div class="main"> <!-- main -->
+            <div class="main"> 
 
 
                 <form name="searchForm" action="search" method="get">
-                    <table>
-                        <th>Search for a player:</th>
-                        <tr>
-                            <td>Player Name:</td>
-                            <td><input type="text" name="searchVal" value=""/></td>
-                        </tr>
-                    </table>
-
+                        <h4>Search for a player:</h4>
+                       
+                            <label>Player Name:</label>
+                            <input type="text" name="searchVal" value=""/>
+                       
+                    <br>
                     <br>
 
                     <input type="submit" name="submit" value="Search"/>
@@ -29,9 +33,9 @@
 
                 </form>
 
-            </div> <!-- close main -->
-
-        </div> <!-- close wrap -->  
+            </div>
+                <%@ include file="/includes/footer.jsp" %>
+        </div> 
 
     </body>
 </html>
